@@ -1,0 +1,17 @@
+{
+  "name": "gen-key-pair",
+  "version": "1.0.0",
+  "description": "A simple utitliy to generate a key pair for ethereum",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethereum-cryptography": "^2.1.2"
+  }
+}
