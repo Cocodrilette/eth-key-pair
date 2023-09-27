@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { parseArgs } from "./utils/parseArgs.js";
 import { genWallet } from "./utils/genWallet.js";
 
