@@ -1,6 +1,6 @@
 {
-  "name": "gen-key-pair",
-  "version": "1.0.0",
+  "name": "gen-eth-wallet",
+  "version": "1.1.0",
   "description": "A simple utitliy to generate a key pair for ethereum",
   "main": "index.js",
   "type": "module",
@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ethereum-cryptography": "^2.1.2"
+    "ethers": "^6.7.1"
   }
 }

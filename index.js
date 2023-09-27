@@ -15,12 +15,17 @@ function main() {
     if (isNaN(value)) throw new Error("Invalid --gen value");
 
     for (let index = 0; index < value; index++) {
-      genWallet({ log: true });
+      genWallet();
+
+      if (index < value - 1)
+        console.log(
+          "======================================================================================================="
+        );
     }
     //
   } else {
     //
-    genWallet({ log: true });
+    genWallet();
     //
   }
 }

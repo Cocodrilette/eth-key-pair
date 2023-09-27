@@ -1,22 +1,21 @@
-import {
-  generateMnemonic,
-  mnemonicToSeedSync,
-} from "ethereum-cryptography/bip39/index.js";
-import { HDKey } from "ethereum-cryptography/hdkey.js";
-import { bytesToHex } from "ethereum-cryptography/utils.js";
-import { wordlist } from "ethereum-cryptography/bip39/wordlists/english.js";
+import { ethers } from "ethers";
 
-export function genWallet(options) {
-  const mnemonic = generateMnemonic(wordlist, 128);
-  const seed = mnemonicToSeedSync(mnemonic);
-  const hdKey = HDKey.fromMasterSeed(seed);
+export function genWallet(
+  options = {
+    log: true,
+  }
+) {
+  const wallet = ethers.Wallet.createRandom();
+
+  const nemonic = wallet.mnemonic;
+  const privKey = wallet.privateKey;
+  const ethAddress = wallet.address;
 
   if (options?.log) {
-    console.log({
-      mnemonic,
-      privateKey: `0x${bytesToHex(hdKey.privateKey)}`,
-    });
+    console.log("\n");
+    console.log("Mnemonic:       ", nemonic.phrase);
+    console.log("Private Key:    ", privKey);
+    console.log("Address:        ", ethAddress);
+    console.log("\n");
   }
-
-  return { mnemonic, privateKey: `0x${bytesToHex(hdKey.privateKey)}` };
 }
