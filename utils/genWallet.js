@@ -1,11 +1,19 @@
 import { ethers } from "ethers";
+import { parseArgs } from "./parseArgs.js";
 
 export function genWallet(
   options = {
     log: true,
   }
 ) {
-  const wallet = ethers.Wallet.createRandom();
+  const args = parseArgs();
+
+  let wallet;
+  if (args["--salt"]) {
+    wallet = ethers.HDNodeWallet.createRandom(args["--salt"]);
+  } else {
+    wallet = ethers.HDNodeWallet.createRandom();
+  }
 
   const nemonic = wallet.mnemonic;
   const privKey = wallet.privateKey;

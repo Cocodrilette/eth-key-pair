@@ -2,6 +2,7 @@
 
 import { parseArgs } from "./utils/parseArgs.js";
 import { genWallet } from "./utils/genWallet.js";
+import { getGenArg } from "./utils/getGenArg.js";
 
 function main() {
   const args = parseArgs();
@@ -12,9 +13,7 @@ function main() {
     //
   } else if (args["--gen"]) {
     //
-    const value = parseInt(args["--gen"], 10);
-
-    if (isNaN(value)) throw new Error("Invalid --gen value");
+    const value = getGenArg(args["--gen"]);
 
     for (let index = 0; index < value; index++) {
       genWallet();
